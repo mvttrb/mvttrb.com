@@ -1,0 +1,127 @@
+/*Designed by @mvttrb*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* VARIÁVEIS */
+:root {
+    --bg-color: #000000;
+    --text-color: #00ff00;
+    --accent-color: #00aa00;
+    --font-main: "Courier New", monospace;
+}
+
+/* BODY */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+}
+
+/* HEADER */
+.terminal-header {
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--accent-color);
+    padding: 6px 20px;
+    position: fixed;
+    top: 0;           
+    left: 0;       
+    width: 100%;     
+    z-index: 1000;
+}
+
+.terminal-header pre {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.terminal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid var(--accent-color);
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: var(--bg-color);
+    z-index: 1000;
+
+}
+
+.footer-text {
+    display: inline;
+}
+
+
+/* CONTAINER */
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 90px /* Tamanho do header */
+}
+
+/* BLOCOS */
+.block {
+    margin-bottom: 30px;
+}
+
+.block h2 {
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.block ul {
+    list-style: none;
+}
+
+.block ul li::before {
+    content: "> ";
+}
+
+/* FOOTER */
+.terminal-footer {
+    border-top: 1px solid var(--accent-color);
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+/* CURSOR */
+#cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+    .terminal-header pre {
+        font-size: 14px;              /* mantém proporção base */
+        line-height: 1.1;
+        white-space: pre;
+
+        /* elimina scroll horizontal */
+        transform: scale(0.85);
+        transform-origin: top center;
+
+        /* impede que force largura da página */
+        width: max-content;
+        max-width: 100%;
+    }
+
+    .container {
+        padding: 10px;
+        padding-top: 90px; /* ajusta para escala reduzida */
+    }
+}
